@@ -86,23 +86,26 @@ public class TC1_Calculator {
         MobileElement equalBtn = driver.findElement(By.id("com.google.android.calculator:id/eq"));
 
 
-        digit_6.click();
+        //digit_6.click();
+        getDigit(6).click();
         multiBtn.click();
-        digit_8.click();
+        //digit_8.click();
+        getDigit(8).click();
         equalBtn.click();
         MobileElement result_final = driver.findElement(By.id("com.google.android.calculator:id/result_final"));
         String actualResult = result_final.getText();
         Assert.assertEquals("48",actualResult);
         driver.closeApp();
+    }
 
-
-        /*
+    /*
             Homework
             Create a method, it accept int
             And return type is Mobile element
             When we call this method , which number we provide it will return that number's mobile element
             */
 
-
+    public MobileElement  getDigit(int digit){
+       return driver.findElement(By.id("com.google.android.calculator:id/digit_"+digit));
     }
 }
